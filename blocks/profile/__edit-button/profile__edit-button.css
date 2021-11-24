@@ -1,0 +1,19 @@
+.profile__edit-button {
+    padding: 0;
+    border: none;
+    outline: none;
+    background-color: black;
+    color: #FFFFFF;
+    box-sizing: border-box;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.profile__edit-button:hover {
+    opacity: 0.6;
+}
+
+.profile__edit-button:focus + .modal {
+    visibility: visible;
+}

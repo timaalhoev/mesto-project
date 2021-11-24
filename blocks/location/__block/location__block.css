@@ -1,0 +1,10 @@
+.location__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding-right: 15px;
+    padding-left: 21px;
+    height: 79px;
+    border-radius: 0 0 10px 10px;
+}
