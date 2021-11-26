@@ -1,0 +1,7 @@
+
+@media screen and (max-width: 320px) {
+    .profile__images {
+        width: 18px;
+        height: 18px;
+    }
+}

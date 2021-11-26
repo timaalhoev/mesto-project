@@ -16,22 +16,16 @@
             <section class="profile">
                 <div class="profile__info">
                     <div class="profile__avatar">
-                        <img class="profile__image" src="./images/image (1).jpg" alt="Жан Ив Кусто">
+                        <img class="profile__image" src="./images/image(1).jpg" alt="Жан Ив Кусто">
                     </div>
                     <div class="profile__user">
                         <h1 class="profile__title">
                             Жак-Ив Кусто
                             <button class="profile__edit-button">
-                                <img class="profile__images" src="./images/Edit Button.png">
+                                <img class="profile__images" src="./images/EditButton.png" alt="Кнопка">
                             </button>
-                            <div class="modal">
-                                <div class="modal__content">
-                                    <h2 class="modal__title">Редактировать профиль</h2>
-                                    <input type="text" value="Жак Ив-Кусто"/>
-                                </div>
-                            </div>
                         </h1>
-                        <figcaption class="profile__subtitle" >Исследователь океана</figcaption>
+                        <p class="profile__subtitle" >Исследователь океана</p>
                     </div>
                 </div>
                 <button class="profile__button">
@@ -41,42 +35,42 @@
             <section class="locations">
                 <div class="locations__row">
                     <div class="location">
-                        <img class="location__images" src="./images/Mask Group.png" alt="Церковь">
+                        <img class="location__images" src="./images/MaskGroup.png" alt="Церковь">
                         <div class="location__block">
                             <h2 class="location__title">Карачаевск</h2>
                             <button class="location__like"></button>
                         </div>
                     </div>
                     <div class="location">
-                        <img class="location__images" src="./images/Mask Group (1).png" alt="Гора">
+                        <img class="location__images" src="./images/MaskGroup1.png" alt="Гора">
                         <div class="location__block">
                             <h2 class="location__title">Гора Эльбрус</h2>
                             <button class="location__like"></button>
                         </div>
                     </div>
                     <div class="location">
-                        <img class="location__images" src="./images/Mask Group (2).png" alt="Домбай">
+                        <img class="location__images" src="./images/MaskGroup2.png" alt="Домбай">
                         <div class="location__block">
                             <h2 class="location__title">Домбай</h2>
                             <button class="location__like"></button>
                         </div>
                     </div>
                     <div class="location">
-                        <img class="location__images" src="./images/Mask Group (1).png" alt="Гора">
+                        <img class="location__images" src="./images/MaskGroup1.png" alt="Гора">
                         <div class="location__block">
                             <h2 class="location__title">Гора Эльбрус</h2>
                             <button class="location__like"></button>
                         </div>
                     </div>
                     <div class="location">
-                        <img  class="location__images" src="./images/Mask Group (2).png" alt="Домбай">
+                        <img  class="location__images" src="./images/MaskGroup2.png" alt="Домбай">
                         <div class="location__block">
                             <h2 class="location__title">Домбай</h2>
                             <button class="location__like"></button>
                         </div>
                     </div>
                     <div class="location">
-                        <img class="location__images" src="./images/Mask Group.png" alt="Церковь">
+                        <img class="location__images" src="./images/MaskGroup.png" alt="Церковь">
                         <div class="location__block">
                             <h2 class="location__title">Карачаевск</h2>
                             <button class="location__like"></button>
@@ -88,5 +82,14 @@
         <footer class="footer">
             <p class="footer__copyright">© 2020 Mesto Russia</p>
         </footer>
+        <div class="popup">
+            <div class="popup__container">
+                <img class="popup__close" src="./images/close.svg" alt="Закрыть" />
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <input class="popup__field" type="text" value="Жак Ив-Кусто"/>
+                <input class="popup__field" type="text" value="Исследователь океана"/>
+                <button class="popup__button" title="Сохранить">Сохранить</button>
+            </div>
+        </div>
     </div>
 </body>       

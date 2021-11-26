@@ -4,3 +4,9 @@
     margin-right: 17px;
     margin-bottom: 20px;
 }
+
+@media screen and (max-width: 320px) {
+    .location {
+     margin-right: 0;
+    }
+}

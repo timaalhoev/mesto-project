@@ -4,8 +4,4 @@
     height: 120px;
 }
 
-@media screen and (max-width: 320px) {
-    .profile__image {
-        
-    }
-}
+
