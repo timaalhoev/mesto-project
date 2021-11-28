@@ -5,6 +5,5 @@
     background: #ffffff;
     padding-right: 15px;
     padding-left: 21px;
-    height: 79px;
-    border-radius: 0 0 10px 10px;
+    min-height: 79px;
 }

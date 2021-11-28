@@ -1,7 +1,7 @@
 .locations {
     max-width: 880px;
     margin: 0 auto;
-    padding: 47.25px 0 67px;
+    padding: 47.25px 19px 67px;
 }
 
 @media screen and (max-width: 320px) {

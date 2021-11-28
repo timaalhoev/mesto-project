@@ -5,11 +5,9 @@
 /* header */
 @import "../blocks/header/header.css";
 @import "../blocks/header/__logo/header__logo.css";
-@import "../blocks/header/__line/header__line.css";
 /* profile */
 @import "../blocks/profile/profile.css";
 @import "../blocks/profile/__info/profile__info.css";
-@import "../blocks/profile/__avatar/profile__avatar.css";
 @import "../blocks/profile/__image/profile__image.css";
 @import "../blocks/profile/__images/profile__images.css";
 @import "../blocks/profile/__user/profile__user.css";
@@ -32,6 +30,7 @@
 @import "../blocks/popup/_opened/popup_opened.css";
 @import "../blocks/popup/__close/popup__close.css";
 @import "../blocks/popup/__container/popup__container.css";
+@import "../blocks/popup/__form/popup__form.css";
 @import "../blocks/popup/__title/popup__title.css";
 @import "../blocks/popup/__field/popup__field.css";
 @import "../blocks/popup/__button/popup__button.css";

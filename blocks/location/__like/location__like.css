@@ -14,7 +14,7 @@
 }
 
 .location__like:active {
-    background-image: url(../../../images/Union.png);
+    background-image: url(../../../images/likeactive.svg);
     opacity: 1;
     
 }

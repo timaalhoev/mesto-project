@@ -1,7 +1,7 @@
 .locations__row {
     display: grid;
-    grid-template-columns: repeat(3, 33.3333%);
-    margin-right: -17px;
+    grid-template-columns: repeat(3, calc(33.3333% - (17px * 2 / 3)));
+    gap: 17px;
 }
 
 @media screen and (max-width: 320px) {

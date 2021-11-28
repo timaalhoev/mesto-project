@@ -5,9 +5,13 @@
     font-weight: 400;
     color: #FFFFFF;
     margin: 0;
+    text-overflow: ellipsis;
+    max-width: 336px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 768px) {
     .profile__subtitle {
         padding-top: 14px;
         font-size: 14px;

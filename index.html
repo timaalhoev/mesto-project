@@ -10,25 +10,20 @@
     <div class="page">
         <header class="header">
             <img class="header__logo" src="./images/logo/image.svg" alt="Место россия">
-            <div class="header__line"></div>
         </header>
         <main>
             <section class="profile">
                 <div class="profile__info">
-                    <div class="profile__avatar">
                         <img class="profile__image" src="./images/image(1).jpg" alt="Жан Ив Кусто">
-                    </div>
                     <div class="profile__user">
                         <h1 class="profile__title">
                             Жак-Ив Кусто
-                            <button class="profile__edit-button">
-                                <img class="profile__images" src="./images/EditButton.png" alt="Кнопка">
-                            </button>
                         </h1>
+                        <button type="button" class="profile__edit-button"></button>
                         <p class="profile__subtitle" >Исследователь океана</p>
                     </div>
                 </div>
-                <button class="profile__button">
+                <button type="button" class="profile__button">
                     <img class="profile__registr" src="./images/plysik.svg" alt="кнопка">
                 </button>
             </section>
@@ -38,14 +33,14 @@
                         <img class="location__images" src="./images/MaskGroup.png" alt="Церковь">
                         <div class="location__block">
                             <h2 class="location__title">Карачаевск</h2>
-                            <button class="location__like"></button>
+                            <button type="button" class="location__like"></button>
                         </div>
                     </div>
                     <div class="location">
                         <img class="location__images" src="./images/MaskGroup1.png" alt="Гора">
                         <div class="location__block">
                             <h2 class="location__title">Гора Эльбрус</h2>
-                            <button class="location__like"></button>
+                            <button type="button" class="location__like"></button>
                         </div>
                     </div>
                     <div class="location">
@@ -84,12 +79,15 @@
         </footer>
         <div class="popup">
             <div class="popup__container">
-                <img class="popup__close" src="./images/close.svg" alt="Закрыть" />
+                <button type="button" class="popup__close"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <input class="popup__field" type="text" value="Жак Ив-Кусто"/>
-                <input class="popup__field" type="text" value="Исследователь океана"/>
-                <button class="popup__button" title="Сохранить">Сохранить</button>
+                <form name="change_user" class="popup__form">
+                    <input name="username" required placeholder="Жак-Ив Кусто" class="popup__field" type="text" value="Жак Ив-Кусто"/>
+                    <input name="occupation" required placeholder="Исследователь океана" class="popup__field" type="text" value="Исследователь океана"/>
+                    <button type="submit" class="popup__button" title="Сохранить">Сохранить</button>
+                </form>
             </div>
         </div>
     </div>
-</body>       
+</body>
+</html>

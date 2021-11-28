@@ -1,4 +1,6 @@
 .profile__edit-button {
+    background-image: url(../../../images/ediitbutton.svg);
+    background-repeat: no-repeat;
     padding: 0;
     border: none;
     outline: none;
@@ -12,8 +14,4 @@
 
 .profile__edit-button:hover {
     opacity: 0.6;
-}
-
-.profile__edit-button:focus + .modal {
-    visibility: visible;
 }

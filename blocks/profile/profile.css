@@ -4,13 +4,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 40px;
+    padding: 40px 19px 0;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 768px) {
     .profile {
-        padding: 0 19px 0;
-        display: flex;
+        padding: 38.25px 19px 0;
         flex-direction: column;
     }
 }

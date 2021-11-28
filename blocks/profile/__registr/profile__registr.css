@@ -1,4 +1,11 @@
 .profile__registr {
-    width: 16px;
-    height: 16px;
+    width: 22px;
+    height: 22px;
+}
+
+@media screen and (max-width: 320px) {
+    .profile__registr {
+        width: 16px;
+        height: 16px;
+    }
 }
