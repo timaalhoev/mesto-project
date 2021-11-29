@@ -4,9 +4,10 @@
     gap: 17px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 620px) {
     .locations__row {
         margin-right: 0;
         grid-template-columns: repeat(1, auto);
+        gap: 0;
     }
 }
