@@ -5,7 +5,7 @@
     background-repeat: no-repeat;
     border: none;
     outline: none;
-    width: 22px;
+    min-width: 22px;
     height: 19px;
     cursor: pointer;
 }
@@ -19,3 +19,7 @@
     
 }
 
+@media screen and (max-width: 620px) {
+    .location__like {
+
+    }

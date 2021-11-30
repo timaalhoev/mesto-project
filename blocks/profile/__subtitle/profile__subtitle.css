@@ -13,8 +13,10 @@
 
 @media screen and (max-width: 768px) {
     .profile__subtitle {
+        width: 100%;
         padding-top: 14px;
         font-size: 14px;
         line-height: 16.94px;
+        text-align: center;
     }
 }
