@@ -15,11 +15,5 @@
 
 .location__like:active {
     background-image: url(../../../images/likeactive.svg);
-    opacity: 1;
-    
+    opacity: 1;  
 }
-
-@media screen and (max-width: 620px) {
-    .location__like {
-
-    }
