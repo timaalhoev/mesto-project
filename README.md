@@ -3,6 +3,7 @@
 ### Используются Технологии: 
 * HTML
 * CSS
+* JavaScript
 ### Ссылка на проэкт
 * [Ссылка на GitHub Pages](https://timaalhoev.github.io/mesto-project/)
 
