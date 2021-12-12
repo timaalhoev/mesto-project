@@ -25,6 +25,7 @@
 @import "../blocks/location/__block/location__block.css";
 @import "../blocks/location/__title/location__title.css";
 @import "../blocks/location/__like/location__like.css";
+@import "../blocks/location/__delete/location__delete.css";
 /* popup */
 @import "../blocks/popup/popup.css";
 @import "../blocks/popup/_opened/popup_opened.css";
@@ -34,6 +35,11 @@
 @import "../blocks/popup/__title/popup__title.css";
 @import "../blocks/popup/__field/popup__field.css";
 @import "../blocks/popup/__button/popup__button.css";
+/* popup_image*/
+@import "../blocks/popup/_big/popup_big.css";
+@import "../blocks/popup/__picture/popup__picture.css";
+@import "../blocks/popup/__text/popup__text.css";
+
 /* footer */
 @import "../blocks/footer/footer.css";
 @import "../blocks/footer/__copyright/footer__copyright.css";

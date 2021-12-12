@@ -1,0 +1,15 @@
+.location__delete {
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    padding-top: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+.location__delete:hover {
+    opacity: 0.5;
+}
+.location__delete.active {
+    
+}

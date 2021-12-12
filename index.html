@@ -29,65 +29,43 @@
             </section>
             <section class="locations">
                 <div class="locations__row">
-                    <div class="location">
-                        <img class="location__images" src="./images/MaskGroup.png" alt="Церковь">
-                        <div class="location__block">
-                            <h2 class="location__title">Карачаевск</h2>
-                            <button type="button" class="location__like"></button>
-                        </div>
-                    </div>
-                    <div class="location">
-                        <img class="location__images" src="./images/MaskGroup1.png" alt="Гора">
-                        <div class="location__block">
-                            <h2 class="location__title">Гора Эльбрус</h2>
-                            <button type="button" class="location__like"></button>
-                        </div>
-                    </div>
-                    <div class="location">
-                        <img class="location__images" src="./images/MaskGroup2.png" alt="Домбай">
-                        <div class="location__block">
-                            <h2 class="location__title">Домбай</h2>
-                            <button type="button" class="location__like"></button>
-                        </div>
-                    </div>
-                    <div class="location">
-                        <img class="location__images" src="./images/MaskGroup1.png" alt="Гора">
-                        <div class="location__block">
-                            <h2 class="location__title">Гора Эльбрус</h2>
-                            <button type="button" class="location__like"></button>
-                        </div>
-                    </div>
-                    <div class="location">
-                        <img  class="location__images" src="./images/MaskGroup2.png" alt="Домбай">
-                        <div class="location__block">
-                            <h2 class="location__title">Домбай</h2>
-                            <button type="button" class="location__like"></button>
-                        </div>
-                    </div>
-                    <div class="location">
-                        <img class="location__images" src="./images/MaskGroup.png" alt="Церковь">
-                        <div class="location__block">
-                            <h2 class="location__title">Карачаевск</h2>
-                            <button type="button" class="location__like"></button>
-                        </div>
-                    </div>
+                    <!-- 
+                        сюда нужно подставить
+                        динамически элементы 
+                        созданные внутри цикла
+                        при пробеге по массиву initialCards
+                    -->
                 </div>
             </section>
         </main>
         <footer class="footer">
             <p class="footer__copyright">© 2020 Mesto Russia</p>
         </footer>
-        <div class="popup">
+        <div class="popup popup_user">
             <div class="popup__container">
                 <button type="button" class="popup__close"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form name="change_user" class="popup__form">
-                    <input name="username" required placeholder="Жак-Ив Кусто" class="popup__field" type="text" value="Жак Ив-Кусто"/>
-                    <input name="occupation" required placeholder="Исследователь океана" class="popup__field" type="text" value="Исследователь океана"/>
+                <form name="change_user" class="popup__form form__user">
+                    <input name="username" required placeholder="Жак-Ив Кусто" class="popup__field field__name" type="text" value="Жак Ив-Кусто"/>
+                    <input name="occupation" required placeholder="Исследователь океана" class="popup__field field__job" type="text" value="Исследователь океана"/>
                     <button type="submit" class="popup__button" title="Сохранить">Сохранить</button>
                 </form>
             </div>
         </div>
+        <div class="popup popup_place">
+            <div class="popup__container">
+                <button type="button" class="popup__close"></button>
+                <h3 class="popup__title">Новое место</h3>
+                <form name="user" class="popup__form form__place">
+                    <input name="place" required placeholder="Название" class="popup__field field__label" type="text" value="Название"/>
+                    <input name="image" required placeholder="Ссылка на картинку" class="popup__field field__image" type="text" value="Ссылка на картинку"/>
+                    <button type="submit" class="popup__button" title="Создать">Создать</button>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup_image">
+        </div>
     </div>
+    <script src="index.js"></script>
 </body>
 </html>
