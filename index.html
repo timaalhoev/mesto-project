@@ -29,6 +29,16 @@
             </section>
             <section class="locations">
                 <div class="locations__row">
+                    <template id="template__location">
+                        <div class="location">
+                            <img class="location__delete" src="./images/delite.svg" >
+                            <img class="location__images" src="./images/MaskGroup1.png" alt="Гора">
+                            <div class="location__block">
+                                <h2 class="location__title">Гора Эльбрус</h2>
+                                <button type="button" class="location__like"></button>
+                            </div>
+                        </div>
+                    </template>
                     <!-- 
                         сюда нужно подставить
                         динамически элементы 
@@ -64,6 +74,11 @@
             </div>
         </div>
         <div class="popup popup_image">
+            <div class="popup__container popup_big">
+                <button class="popup__close"></button>
+                <img class="popup__picture" src="">
+                <p class="popup__text"></p>
+            </div>
         </div>
     </div>
     <script src="index.js"></script>
