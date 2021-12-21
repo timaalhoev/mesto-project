@@ -23,12 +23,18 @@ const popupImageTitle = document.querySelector('.popup_image .popup__text')
 const templateLocation = document.getElementById('template__location')
 
 /* открываем и закрываем попап "Редактировать юзера" */
-edit.addEventListener('click', () => openPopup(popupUser))
+edit.addEventListener('click', () => {
+  nameInput.value = title.textContent
+  jobInput.value = subtitle.textContent
+  openPopup(popupUser)
+})
 closePopupUser.addEventListener('click', () => closePopup(popupUser))
 
 /* открываем и закрываем попап "Новое место" */
 plus.addEventListener('click', () => openPopup(popupPlace))
 closePopupPlace.addEventListener('click', () => closePopup(popupPlace))
+/* закрываем попап "Изображение" */
+closePopupImage.addEventListener('click', () => closePopup(popupImage))
 
 function openPopup(el) {
   el.classList.add('popup_opened')
@@ -85,18 +91,30 @@ const initialCards = [
 const locationRow = document.querySelector('.locations__row')
 
 initialCards.forEach(item => {
-  createCard(item)
+  renderCard(createCard(item))
 })
+
+function renderCard(element, queue) {
+  if (queue === 'at_first')
+    locationRow.prepend(element)
+  else
+    locationRow.append(element)
+}
 
 formPlace.addEventListener('submit', submitFormPlaceHandler)
 
 function submitFormPlaceHandler(event) {
   event.preventDefault()
 
-  createCard({
+  const newCard = createCard({
     name: labelInput.value,
     link: imageInput.value
   })
+
+  renderCard(newCard, 'at_first')
+
+  labelInput.value = ''
+  imageInput.value = ''
 
   closePopup(popupPlace)
 }
@@ -110,21 +128,23 @@ function createCard(item) {
   locationImage.addEventListener('click', function () {
     openPopup(popupImage)
 
-    closePopupImage.addEventListener('click', () => closePopup(popupImage))
     image.setAttribute('src', item.link)
+    image.setAttribute('alt', 'Пейзаж')
     popupImageTitle.textContent = item.name
   })
 
   locationCard.querySelector('.location__title').textContent = item.name
 
-  locationCard.querySelector('.location__like').addEventListener('click', function () {
-    locationLike.classList.toggle('active')
+  const like = locationCard.querySelector('.location__like')
+  
+  like.addEventListener('click', function () {
+    like.classList.toggle('active')
   })
 
   const icon = locationCard.querySelector('.location__delete')
-  icon.addEventListener('click', function () {
-    icon.parentNode.remove()
+  icon.addEventListener('click', function (event) {
+    event.target.closest('.location').remove()
   })
 
-  locationRow.prepend(locationCard)
+  return locationCard
 }
