@@ -125,7 +125,7 @@ function createCard(item) {
 
   const locationImage = locationCard.querySelector('.location__images')
   locationImage.src = item.link
-  locationImage.src = item.name
+  locationImage.alt = item.name
   locationImage.addEventListener('click', function () {
     openPopup(popupImage)
 
