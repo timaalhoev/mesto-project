@@ -125,11 +125,12 @@ function createCard(item) {
 
   const locationImage = locationCard.querySelector('.location__images')
   locationImage.src = item.link
+  locationImage.src = item.name
   locationImage.addEventListener('click', function () {
     openPopup(popupImage)
 
     image.setAttribute('src', item.link)
-    image.setAttribute('alt', 'Пейзаж')
+    image.setAttribute('alt', item.name)
     popupImageTitle.textContent = item.name
   })
 
