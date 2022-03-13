@@ -7,4 +7,10 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     margin-top: 17px;
 }
+.popup__field:valid {
+    border-bottom: 1px solid green;
+}
 
+.popup__field:invalid {
+    border-bottom: 1px solid red;
+}

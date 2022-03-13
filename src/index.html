@@ -4,17 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body>
     <div class="page">
         <header class="header">
-            <img class="header__logo" src="./images/logo/image.svg" alt="Место россия">
+          <img class="header__logo" src="<%=require('./images/logo/image.svg')%>" alt="Место россия">
         </header>
         <main>
             <section class="profile">
                 <div class="profile__info">
-                        <img class="profile__image" src="./images/image(1).jpg" alt="Жан Ив Кусто">
+                    <img class="profile__image" src="<%=require('./images/image(1).jpg')%>" alt="Жан Ив Кусто">
                     <div class="profile__user">
                         <h1 class="profile__title">Жак-Ив Кусто</h1>
                         <button type="button" class="profile__edit-button"></button>
@@ -22,19 +21,19 @@
                     </div>
                 </div>
                 <button type="button" class="profile__button">
-                    <img class="profile__registr" src="./images/plysik.svg" alt="кнопка">
+                  <img class="profile__registr" src="<%=require('./images/plysik.svg')%>" alt="кнопка">
                 </button>
             </section>
             <section class="locations">
                 <div class="locations__row">
                     <template id="template__location">
                         <div class="location">
-                            <img class="location__delete" src="./images/delite.svg">
-                            <img class="location__images" src="./images/MaskGroup1.png" alt="Гора">
-                            <div class="location__block">
-                                <h2 class="location__title">Гора Эльбрус</h2>
-                                <button type="button" class="location__like"></button>
-                            </div>
+                          <img class="location__delete" src="<%=require('./images/delite.svg')%>" alt="Удалить">
+                          <img class="location__images" src="<%=require('./images/MaskGroup1.png')%>" alt="Гора">
+                          <div class="location__block">
+                              <h2 class="location__title">Гора Эльбрус</h2>
+                              <button type="button" class="location__like"></button>
+                          </div>
                         </div>
                     </template>
                     <!-- 
@@ -53,10 +52,12 @@
             <div class="popup__container">
                 <button type="button" class="popup__close"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form name="change_user" class="popup__form form__user">
-                    <input name="username" required placeholder="Жак-Ив Кусто" class="popup__field field__name" type="text" value=""/>
-                    <input name="occupation" required placeholder="Исследователь океана" class="popup__field field__job" type="text" value=""/>
-                    <button type="submit" class="popup__button" title="Сохранить">Сохранить</button>
+                <form name="change_user" class="popup__form form__user" novalidate>
+                    <input id='username' name="username" class="popup__field field__name" minlength="2" maxlength="40" required placeholder="Жак-Ив Кусто" type="text" value=""/>
+                    <span id="username-error" class="text-input-error form__input-error"></span>
+                    <input id="occupation" name="occupation" class="popup__field field__job" minlength="2" maxlength="200" required placeholder="Исследователь океана" type="text" value=""/>
+                    <span id="occupation-error" class="text-input-error form__input-error"></span>
+                    <button type="submit" class="popup__button popup__button_disabled" title="Сохранить">Сохранить</button>
                 </form>
             </div>
         </div>
@@ -65,9 +66,11 @@
                 <button type="button" class="popup__close"></button>
                 <h3 class="popup__title">Новое место</h3>
                 <form name="user" class="popup__form form__place">
-                    <input name="place" required placeholder="Название" class="popup__field field__label" type="text" value=""/>
-                    <input name="image" required placeholder="Ссылка на картинку" class="popup__field field__image" type="text" value=""/>
-                    <button type="submit" class="popup__button" title="Создать">Создать</button>
+                    <input id= "place" name="place" required placeholder="Название" minlength="2" maxlength="30" class="popup__field field__label" type="text" value=""/>
+                    <span id="place-error" class="text-input-error form__input-error"></span>
+                    <input type="url" id="image" name="image" required placeholder="Ссылка на картинку" class="popup__field field__image" value=""/>
+                    <span id="image-error" class="text-input-error form__input-error"></span>
+                    <button type="submit" class="popup__button popup__button_action_add popup__button_disabled" title="Создать">Создать</button>
                 </form>
             </div>
         </div>
@@ -79,6 +82,5 @@
             </div>
         </div>
     </div>
-    <script src="index.js"></script>
 </body>
 </html>
