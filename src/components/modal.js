@@ -33,9 +33,9 @@ function overlayHandler(event) {
 
 function closeByEsape(event) {
   const key = event.key;
-  const activePopup = document.querySelector('.popup_opened')
   if (key === "Escape" && activePopup) {
-      closePopup(activePopup);
+  const activePopup = document.querySelector('.popup_opened');
+    closePopup(activePopup);
   }
 }
 
