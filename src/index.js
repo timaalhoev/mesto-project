@@ -42,15 +42,6 @@ closePopupPlace.addEventListener('click', () => closePopup(popupPlace))
 /* закрываем попап "Изображение" */
 closePopupImage.addEventListener('click', () => closePopup(popupImage))
 
-// закрытие попапа на esc
-document.addEventListener('keydown', function(event) {
-  const key = event.key;
-  const activePopup = document.querySelector('.popup_opened')
-  if (key === "Escape" && activePopup) {
-      closePopup(activePopup);
-  }
-});
-
 const validationConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__field',

@@ -27,15 +27,28 @@ function submitFormPlaceHandler(event) {
   closePopup(popupPlace)
 }
 
+function overlayHandler(event) {
+  event.target.classList.remove('popup_opened')
+}
+
+function closeByEsape(event) {
+  const key = event.key;
+  const activePopup = document.querySelector('.popup_opened')
+  if (key === "Escape" && activePopup) {
+      closePopup(activePopup);
+  }
+}
+
 function openPopup(el) {
   el.classList.add('popup_opened')
-  el.addEventListener('click', (event) => {
-    event.target.classList.remove('popup_opened')
-  })
+  el.addEventListener('click', overlayHandler)
+  document.addEventListener('keydown', closeByEsape);
 }
 
 function closePopup(el) {
   el.classList.remove('popup_opened')
+  el.removeEventListener('click', overlayHandler)
+  document.removeEventListener('keydown', closeByEsape);
 }
 
 // описываю функцию-обработчик

@@ -5,6 +5,7 @@ import {
 const popupImage = document.querySelector('.popup_image');
 const popupImageTitle = document.querySelector('.popup_image .popup__text');
 const image = document.querySelector('.popup_image .popup__picture');
+const templateLocation = document.getElementById('template__location')
 
 const initialCards = [
   {
@@ -47,7 +48,6 @@ function renderCard(element, queue) {
 }
 
 function createCard(item) {
-  const templateLocation = document.getElementById('template__location')
   const location = templateLocation.content
   const locationCard = location.cloneNode(true)
 
