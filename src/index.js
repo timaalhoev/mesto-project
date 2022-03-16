@@ -1,15 +1,12 @@
 import "./index.css"
 import { 
   openPopup, 
-  closePopup, 
-  submitFormUserHandler, 
-  submitFormPlaceHandler,
+  closePopup,
   nameInput,
   jobInput,
   title,
   subtitle,
   popupUser,
-  formPlace,
   popupPlace,
 } from "./components/modal"
 import { popupImage } from "./components/card"

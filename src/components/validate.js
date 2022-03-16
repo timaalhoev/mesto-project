@@ -63,14 +63,14 @@ const enableValidation = (config) => {
     item.addEventListener('submit', event => {
       event.preventDefault();
       if (event.target.name === config.placeFormName) {
-        submitFormPlaceHandler();
+        submitFormPlaceHandler(config);
       } else if (event.target.name === config.userFormName) {
-        submitFormUserHandler()
+        submitFormUserHandler(config);
       }
     });
-    setEventListeners(item, config)
+    setEventListeners(item, config);
   });
 };
 
 
-export { enableValidation }
+export { enableValidation, disableButton }
