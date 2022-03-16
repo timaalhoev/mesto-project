@@ -10,20 +10,14 @@ export const popupUser = document.querySelector('.popup_user')
 export const formPlace = document.querySelector('.form__place')
 export const popupPlace = document.querySelector('.popup_place')
 
-function submitFormPlaceHandler(event) {
-  event.preventDefault()
-
+function submitFormPlaceHandler() {
   const newCard = createCard({
     name: labelInput.value,
     link: imageInput.value
   })
 
   renderCard(newCard, 'at_first')
-
-  //  labelInput.value = ''
-  //  imageInput.value = ''
   formPlace.reset()
-  
   closePopup(popupPlace)
 }
 
@@ -52,9 +46,7 @@ function closePopup(el) {
 }
 
 // описываю функцию-обработчик
-function submitFormUserHandler (event) {
-  event.preventDefault()
-
+function submitFormUserHandler () {
   // достаю значения из инпутов формы
   const name = nameInput.value
   const job = jobInput.value

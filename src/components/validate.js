@@ -1,3 +1,5 @@
+import { submitFormPlaceHandler, submitFormUserHandler } from "./modal";
+
 const hideInputError = (inputElement, errorElement, config) => {
     inputElement.classList.remove(config.inputInvalidClass);
     inputElement.classList.remove(config.errorClass);
@@ -16,7 +18,6 @@ const disableButton = (buttonElement, config) => {
 };
 
 const enableButton = (buttonElement, config) => {
-    console.log(buttonElement.classList);
     buttonElement.classList.remove(config.buttonDesabledClass);
     buttonElement.disabled = false;
 };
@@ -61,6 +62,11 @@ const enableValidation = (config) => {
   forms.forEach(item => {
     item.addEventListener('submit', event => {
       event.preventDefault();
+      if (event.target.name === config.placeFormName) {
+        submitFormPlaceHandler();
+      } else if (event.target.name === config.userFormName) {
+        submitFormUserHandler()
+      }
     });
     setEventListeners(item, config)
   });

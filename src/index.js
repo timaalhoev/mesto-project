@@ -44,6 +44,8 @@ closePopupImage.addEventListener('click', () => closePopup(popupImage))
 
 const validationConfig = {
   formSelector: '.popup__form',
+  userFormName: 'change_user',
+  placeFormName: 'place',
   inputSelector: '.popup__field',
   errorClass: 'text-input-error',
   inputInvalidClass: 'popup__field_invalid',
