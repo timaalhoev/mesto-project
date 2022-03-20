@@ -1,5 +1,6 @@
 import { renderCard, createCard } from './card'
 import { disableButton } from './validate'
+import { fetchUpdateUser, postCard } from './api'
 
 export const labelInput = document.querySelector('.field__label')
 export const imageInput = document.querySelector('.field__image')
@@ -9,29 +10,32 @@ export const nameInput = document.querySelector('.field__name')
 export const jobInput = document.querySelector('.field__job')
 export const title = document.querySelector('.profile__title')
 export const subtitle = document.querySelector('.profile__subtitle')
+export const avatar = document.querySelector('.profile__image')
 export const popupUser = document.querySelector('.popup_user')
 export const formPlace = document.querySelector('.form__place')
 export const popupPlace = document.querySelector('.popup_place')
 
 function submitFormPlaceHandler(config) {
-  const newCard = createCard({
-    name: labelInput.value,
-    link: imageInput.value
-  })
+  postCard(labelInput.value, imageInput.value)
+  .then(data => {
+    const newCard = createCard({
+      name: data.name,
+      link: data.link
+    })
+    .catch((error) => console.log(error))
 
-  renderCard(newCard, 'at_first')
-  formPlace.reset()
-  closePopup(popupPlace)
-  disableButton(placeButton, config)
+    renderCard(newCard, 'at_first')
+    formPlace.reset()
+    closePopup(popupPlace)
+    disableButton(placeButton, config)
+  })
 }
 
 function submitFormUserHandler (config) {
   // достаю значения из инпутов формы
   const name = nameInput.value
   const job = jobInput.value
-
-  title.textContent = name // задаю новое имя
-  subtitle.textContent = job // задаю новую работу
+  fetchUpdateUser(name, job)
 
   closePopup(popupUser) // вызываю функцию закрывающую popup
   disableButton(userButton, config)

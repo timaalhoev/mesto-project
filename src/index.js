@@ -9,6 +9,10 @@ import {
   popupUser,
   popupPlace,
 } from "./components/modal"
+import {
+  fetchCards,
+  fetchUser
+} from './components/api'
 import { popupImage } from "./components/card"
 import { enableValidation } from "./components/validate"
 
@@ -51,3 +55,6 @@ const validationConfig = {
 };
 
 enableValidation(validationConfig)
+
+fetchUser()
+fetchCards()

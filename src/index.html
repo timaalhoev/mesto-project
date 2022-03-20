@@ -13,11 +13,11 @@
         <main>
             <section class="profile">
                 <div class="profile__info">
-                    <img class="profile__image" src="<%=require('./images/image(1).jpg')%>" alt="Жан Ив Кусто">
+                    <img class="profile__image" src="" alt="Жан Ив Кусто">
                     <div class="profile__user">
-                        <h1 class="profile__title">Жак-Ив Кусто</h1>
+                        <h1 class="profile__title"></h1>
                         <button type="button" class="profile__edit-button"></button>
-                        <p class="profile__subtitle">Исследователь океана</p>
+                        <p class="profile__subtitle"></p>
                     </div>
                 </div>
                 <button type="button" class="profile__button">
@@ -29,10 +29,13 @@
                     <template id="template__location">
                         <div class="location">
                           <img class="location__delete" src="<%=require('./images/delite.svg')%>" alt="Удалить">
-                          <img class="location__images" src="<%=require('./images/MaskGroup1.png')%>" alt="Гора">
+                          <img class="location__images" src="" alt="Гора">
                           <div class="location__block">
-                              <h2 class="location__title">Гора Эльбрус</h2>
-                              <button type="button" class="location__like"></button>
+                              <h2 class="location__title"></h2>
+                              <div class="location__container">
+                                <button type="button" class="location__like"></button>
+                                <span class="location__like-count"></span>
+                              </div>
                           </div>
                         </div>
                     </template>
@@ -53,9 +56,9 @@
                 <button type="button" class="popup__close"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <form name="change_user" class="popup__form form__user" novalidate>
-                    <input id='username' name="username" class="popup__field field__name" minlength="2" maxlength="40" required placeholder="Жак-Ив Кусто" type="text" value=""/>
+                    <input id='username' name="username" class="popup__field field__name" minlength="2" maxlength="40" required placeholder="Имя" type="text" value=""/>
                     <span id="username-error" class="text-input-error form__input-error"></span>
-                    <input id="occupation" name="occupation" class="popup__field field__job" minlength="2" maxlength="200" required placeholder="Исследователь океана" type="text" value=""/>
+                    <input id="occupation" name="occupation" class="popup__field field__job" minlength="2" maxlength="200" required placeholder="Профессия" type="text" value=""/>
                     <span id="occupation-error" class="text-input-error form__input-error"></span>
                     <button type="submit" class="popup__button popup__button_user popup__button_disabled" title="Сохранить">Сохранить</button>
                 </form>

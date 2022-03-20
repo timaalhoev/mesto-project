@@ -1,44 +1,17 @@
 import {
   openPopup
 } from './modal'
-
+import {
+  setlike,
+  deleteLikeAPI,
+  userID
+} from './api'
 const popupImage = document.querySelector('.popup_image');
 const popupImageTitle = document.querySelector('.popup_image .popup__text');
 const image = document.querySelector('.popup_image .popup__picture');
 const templateLocation = document.getElementById('template__location')
 
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 const locationRow = document.querySelector('.locations__row')
-
-initialCards.forEach(item => {
-  renderCard(createCard(item))
-})
 
 function renderCard(element, queue) {
   if (queue === 'at_first')
@@ -65,9 +38,30 @@ function createCard(item) {
   locationCard.querySelector('.location__title').textContent = item.name
 
   const like = locationCard.querySelector('.location__like')
+  const likeCount = locationCard.querySelector('.location__like-count')
+
+  item.likes.forEach(el => {
+    if (userID === el._id) {
+      like.classList.add('active')
+    }
+  });
+
+  likeCount.textContent = item.likes.length
   
-  like.addEventListener('click', function () {
-    like.classList.toggle('active')
+  like.addEventListener('click', (evt) => {
+    if (like.classList.contains('active')) {
+      deleteLikeAPI(item._id).then((res) => {
+        likeCount.textContent = res.likes.length;
+        like.classList.remove('active')
+      })
+      .catch((error) => console.log(error))
+    } else {
+      setlike(item._id).then((res) => {
+        likeCount.textContent = res.likes.length;
+        like.classList.add('active')
+      })
+      .catch((error) => console.log(error))
+    }
   })
 
   const icon = locationCard.querySelector('.location__delete')

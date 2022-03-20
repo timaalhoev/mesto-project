@@ -24,7 +24,9 @@
 @import "./blocks/location/__images/location__images.css";
 @import "./blocks/location/__block/location__block.css";
 @import "./blocks/location/__title/location__title.css";
+@import "./blocks/location/location__container/location__container.css";
 @import "./blocks/location/__like/location__like.css";
+@import "./blocks/location/__like-count/__like-count.css";
 @import "./blocks/location/__delete/location__delete.css";
 /* popup */
 @import "./blocks/popup/popup.css";

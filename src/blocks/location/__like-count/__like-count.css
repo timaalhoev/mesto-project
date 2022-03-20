@@ -1,0 +1,8 @@
+.location__like-count {
+  margin: 0;
+  padding: 0;
+  padding-top: 3px;
+  align-items: center;
+  font-size: 13px;
+  line-height: 16px;
+}
