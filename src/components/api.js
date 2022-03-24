@@ -1,7 +1,4 @@
-import {
-  cohort,
-  token
-} from '../constants'
+
 import {
   renderCard,
   createCard,
@@ -14,10 +11,16 @@ import {
 
 let userID = null
 
+const configApi = {
+  urlCards: 'https://nomoreparties.co/v1/plus-cohort7/cards',
+  urlUser: 'https://nomoreparties.co/v1/plus-cohort7/users/me',
+  urlLikes: 'https://nomoreparties.co/v1/plus-cohort7/cards/likes',
+  token: '3d57eda9-7790-4f7a-bd35-cb564682d3fd'
+}
 function fetchUser() {
-  fetch(`https://nomoreparties.co/v1/${cohort}/users/me`, {
+  fetch(configApi.urlUser, {
     headers: {
-      authorization: token
+      authorization: configApi.token
     }
   })
   .then((res) => {
@@ -37,9 +40,9 @@ const updateUser = (res) => {
 }
 
 function fetchCards() {
-  fetch(`https://nomoreparties.co/v1/${cohort}/cards`, {
+  fetch(configApi.urlCards, {
     headers: {
-      authorization: token
+      authorization: configApi.token
     }
   })
   .then((res) => {
@@ -47,14 +50,13 @@ function fetchCards() {
     Promise.reject(`Ошибка: ${res.status}`);
   })
   .then(res => res.forEach(item => renderCard(createCard(item))))
-  
 }
 
 function fetchUpdateUser(name, job) {
-  fetch(`https://nomoreparties.co/v1/${cohort}/users/me`, {
+  return fetch(configApi.urlUser, {
     method: 'PATCH',
     headers: {
-      authorization: token,
+      authorization: configApi.token,
       'Content-Type': 'application/json'
     }, 
     body: JSON.stringify({
@@ -66,14 +68,17 @@ function fetchUpdateUser(name, job) {
     if (res.ok) return res.json();
     return Promise.reject(`Ошибка: ${res.status}`);
   })
-  .then(res => updateUser(res)) 
+  .then((res) => {
+    userID = res._id
+    updateUser(res)
+  })
 }
 
 function postCard(labelInput, imageInput) {
-  return fetch(`https://nomoreparties.co/v1/${cohort}/cards`, {
+  return fetch(configApi.urlCards, {
     method: 'POST',
     headers: {
-      authorization: token,
+      authorization: configApi.token,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
@@ -89,10 +94,10 @@ function postCard(labelInput, imageInput) {
 }
 
 function setlike(card_id) {
-  return fetch(`https://nomoreparties.co/v1/${cohort}/cards/likes/${card_id}`, {
+  return fetch(`${configApi.urlLikes}/${card_id}`, {
     method: 'PUT',
     headers: {
-      authorization: token
+      authorization: configApi.token
     },
   })
   .then((res) => {
@@ -102,10 +107,10 @@ function setlike(card_id) {
 }
 
 function deleteLikeAPI(card_id) {
-  return fetch(`https://nomoreparties.co/v1/${cohort}/cards/likes/${card_id}`, {
+  return fetch(`${configApi.urlLikes}/${card_id}`, {
     method: 'DELETE',
     headers: {
-      authorization: token
+      authorization: configApi.token
     },
   })
   .then((res) => {
@@ -114,4 +119,38 @@ function deleteLikeAPI(card_id) {
   })
 }
 
-export { fetchCards, fetchUser, fetchUpdateUser, postCard, deleteLikeAPI, setlike, userID }
+function deleteCards(card_id) {
+  return fetch(`${configApi.urlCards}/${card_id}`, {
+    method: 'DELETE',
+    headers: {
+      authorization: configApi.token
+    },
+  })
+  .then((res) => {
+    if (res.ok) return res.json();
+    return Promise.reject(`Ошибка: ${res.status}`)
+  })
+}
+
+function patchAvatar(image_url) {
+  return fetch(`${configApi.urlUser}/avatar`, {
+    method: 'PATCH',
+    headers: {
+      authorization: configApi.token,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      avatar: `${image_url}`
+    })
+  })
+  .then((res) => {
+    if (res.ok) return res.json();
+    return Promise.reject(`Ошибка: ${res.status}`)
+  })
+  .then((res) => {
+    userID = res._id
+    updateUser(res)
+  })
+}
+
+export { fetchCards, fetchUser, fetchUpdateUser, postCard, deleteLikeAPI, deleteCards, setlike, patchAvatar, userID }

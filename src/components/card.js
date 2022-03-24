@@ -4,7 +4,9 @@ import {
 import {
   setlike,
   deleteLikeAPI,
-  userID
+  deleteCards,
+  userID,
+  patchAvatar,
 } from './api'
 const popupImage = document.querySelector('.popup_image');
 const popupImageTitle = document.querySelector('.popup_image .popup__text');
@@ -40,11 +42,13 @@ function createCard(item) {
   const like = locationCard.querySelector('.location__like')
   const likeCount = locationCard.querySelector('.location__like-count')
 
-  item.likes.forEach(el => {
-    if (userID === el._id) {
-      like.classList.add('active')
-    }
-  });
+  if (item.likes.length !== 0) {
+    item.likes.forEach(el => {
+      if (userID === el._id) {
+        like.classList.add('active')
+      }
+    });
+  }
 
   likeCount.textContent = item.likes.length
   
@@ -63,13 +67,19 @@ function createCard(item) {
       .catch((error) => console.log(error))
     }
   })
-
-  const icon = locationCard.querySelector('.location__delete')
-  icon.addEventListener('click', function (event) {
-    event.target.closest('.location').remove()
-  })
+  
+  const locationDelete = locationCard.querySelector('.location__delete')
+  if (item.owner._id === userID) {
+    locationDelete.addEventListener('click', function (event) {
+      deleteCards(item._id).then(() => {
+        event.target.closest('.location').remove()
+      })
+    })
+  } else {
+    locationDelete.remove()
+  }
 
   return locationCard
 }
 
-export { renderCard, createCard, popupImage }
+export { renderCard, deleteCards, createCard, popupImage, }

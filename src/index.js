@@ -8,6 +8,9 @@ import {
   subtitle,
   popupUser,
   popupPlace,
+  popupAvatar,
+  buttonAvatar,
+  avatar,
 } from "./components/modal"
 import {
   fetchCards,
@@ -24,6 +27,8 @@ const closePopupUser = document.querySelector('.popup_user .popup__close')
 const closePopupPlace = document.querySelector('.popup_place .popup__close')
 /* нахожу элементы попапа popup_image */
 const closePopupImage = document.querySelector('.popup_image .popup__close')
+/* нахожу элементы попапа popup_avatar */
+const closePopupAvatar = document.querySelector('.popup_avatar .popup__close')
 /* нахожу template карточки места */
 const templateLocation = document.getElementById('template__location')
 
@@ -42,16 +47,21 @@ plus.addEventListener('click', () => openPopup(popupPlace))
 closePopupPlace.addEventListener('click', () => closePopup(popupPlace))
 /* закрываем попап "Изображение" */
 closePopupImage.addEventListener('click', () => closePopup(popupImage))
+//открыть попап для редактирования аватара
+buttonAvatar.addEventListener('click', () => openPopup(popupAvatar))
+closePopupAvatar.addEventListener('click', () => closePopup(popupAvatar))
 
 const validationConfig = {
   formSelector: '.popup__form',
   userFormName: 'change_user',
   placeFormName: 'place',
+  avatarFormName: 'avatar',
   inputSelector: '.popup__field',
   errorClass: 'text-input-error',
   inputInvalidClass: 'popup__field_invalid',
   buttonSelector: '.popup__button',
   buttonDesabledClass: 'popup__button_disabled'
+
 };
 
 enableValidation(validationConfig)

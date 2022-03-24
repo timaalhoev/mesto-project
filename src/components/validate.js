@@ -1,4 +1,4 @@
-import { submitFormPlaceHandler, submitFormUserHandler } from "./modal";
+import { submitFormPlaceHandler, submitFormUserHandler, submitFormAvatarHandler } from "./modal";
 
 const hideInputError = (inputElement, errorElement, config) => {
     inputElement.classList.remove(config.inputInvalidClass);
@@ -66,6 +66,8 @@ const enableValidation = (config) => {
         submitFormPlaceHandler(config);
       } else if (event.target.name === config.userFormName) {
         submitFormUserHandler(config);
+      } else if (event.target.name === config.avatarFormName) {
+        submitFormAvatarHandler(config)
       }
     });
     setEventListeners(item, config);

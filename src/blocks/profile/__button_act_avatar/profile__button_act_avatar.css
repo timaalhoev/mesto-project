@@ -1,0 +1,20 @@
+.profile__button_act_avatar {
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  outline: none;
+}
+.profile__button_act_avatar:hover {
+  cursor: pointer;
+  background-image: url("../../../images/avatarfix.svg");
+  color: rgb(240, 255, 255);
+  background-color: rgba(0, 0, 0, 0.8);
+  background-repeat: no-repeat;
+  background-position: center;
+  /* z-index: 2; */
+}
