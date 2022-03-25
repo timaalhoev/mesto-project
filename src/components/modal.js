@@ -54,25 +54,27 @@ function submitFormUserHandler (config) {
   // достаю значения из инпутов формы
   const name = nameInput.value
   const job = jobInput.value
-  fetchUpdateUser(name, job)
+  fetchUpdateUser(name, job).then(() => {
+    closePopup(popupUser) // вызываю функцию закрывающую popup
+    disableButton(userButton, config)
+  })
   .catch((error) => console.log(`Ошибка: ${error}`))
   .finally(() => {
     renderLoading(false, userButton);
-    closePopup(popupUser) // вызываю функцию закрывающую popup
-    disableButton(userButton, config)
   })
 }
 
 function submitFormAvatarHandler (config) {
   renderLoading(true, popupAvatarButton)
   const avatar = inputAvatar.value
-  patchAvatar(avatar)
+  patchAvatar(avatar).then(() => {
+    disableButton(popupAvatarButton, config)
+    formAvatar.reset()
+    closePopup(popupAvatar) // вызываю функцию закрывающую popup
+  })
   .catch((error) => console.log(`Ошибка: ${error}`))
   .finally(() => {
     renderLoading(false, popupAvatarButton);
-    formAvatar.reset()
-    closePopup(popupAvatar) // вызываю функцию закрывающую popup
-    disableButton(popupAvatarButton, config)
   })
 }
 
