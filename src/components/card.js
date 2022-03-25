@@ -74,6 +74,7 @@ function createCard(item) {
       deleteCards(item._id).then(() => {
         event.target.closest('.location').remove()
       })
+      .catch((error) => console.log(error))
     })
   } else {
     locationDelete.remove()

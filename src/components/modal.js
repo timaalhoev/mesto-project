@@ -32,12 +32,12 @@ function submitFormPlaceHandler(config) {
     })
 
     renderCard(newCard, 'at_first')
-  })
-  .finally(() => {
-    renderLoading(false, placeButton)
     formPlace.reset()
     closePopup(popupPlace)
     disableButton(placeButton, config)
+  })
+  .finally(() => {
+    renderLoading(false, placeButton)
   })
 }
 
@@ -81,10 +81,11 @@ function overlayHandler(event) {
 }
 
 //функция закрытия попапа при нажатии ESC
+
 function closeByEsape(event) {
   const key = event.key;
-  const activePopup = document.querySelector('.popup_opened');
-  if (key === "Escape" && activePopup) {
+  if (key === "Escape") {
+    const activePopup = document.querySelector('.popup_opened');
     closePopup(activePopup);
   }
 }

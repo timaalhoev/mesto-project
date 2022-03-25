@@ -17,16 +17,21 @@ const configApi = {
   urlLikes: 'https://nomoreparties.co/v1/plus-cohort7/cards/likes',
   token: '3d57eda9-7790-4f7a-bd35-cb564682d3fd'
 }
+
+export function checkResponse(res) {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Ошибка: ${res.status}`);
+}
+
 function fetchUser() {
   fetch(configApi.urlUser, {
     headers: {
       authorization: configApi.token
     }
   })
-  .then((res) => {
-    if (res.ok) return res.json();
-    Promise.reject(`Ошибка: ${res.status}`);
-  })
+  .then(checkResponse)
   .then((res) => {
     userID = res._id
     updateUser(res)
@@ -45,10 +50,7 @@ function fetchCards() {
       authorization: configApi.token
     }
   })
-  .then((res) => {
-    if (res.ok) return res.json();
-    Promise.reject(`Ошибка: ${res.status}`);
-  })
+  .then(checkResponse)
   .then(res => res.forEach(item => renderCard(createCard(item))))
 }
 
@@ -64,10 +66,7 @@ function fetchUpdateUser(name, job) {
       about: job
     })
   })
-  .then((res) => {
-    if (res.ok) return res.json();
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
+  .then(checkResponse)
   .then((res) => {
     userID = res._id
     updateUser(res)
@@ -86,10 +85,7 @@ function postCard(labelInput, imageInput) {
       link: imageInput 
     })
   })
-  .then((res) => {
-    if (res.ok) return res.json();
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
+  .then(checkResponse)
 
 }
 
@@ -100,10 +96,7 @@ function setlike(card_id) {
       authorization: configApi.token
     },
   })
-  .then((res) => {
-    if (res.ok) return res.json();
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
+  .then(checkResponse)
 }
 
 function deleteLikeAPI(card_id) {
@@ -113,10 +106,7 @@ function deleteLikeAPI(card_id) {
       authorization: configApi.token
     },
   })
-  .then((res) => {
-    if (res.ok) return res.json();
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
+  .then(checkResponse)
 }
 
 function deleteCards(card_id) {
@@ -126,10 +116,7 @@ function deleteCards(card_id) {
       authorization: configApi.token
     },
   })
-  .then((res) => {
-    if (res.ok) return res.json();
-    return Promise.reject(`Ошибка: ${res.status}`)
-  })
+  .then(checkResponse)
 }
 
 function patchAvatar(image_url) {
@@ -143,10 +130,7 @@ function patchAvatar(image_url) {
       avatar: `${image_url}`
     })
   })
-  .then((res) => {
-    if (res.ok) return res.json();
-    return Promise.reject(`Ошибка: ${res.status}`)
-  })
+  .then(checkResponse)
   .then((res) => {
     userID = res._id
     updateUser(res)
